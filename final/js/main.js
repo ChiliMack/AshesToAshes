@@ -74,10 +74,12 @@
     link.addEventListener('click', function () {
       closeMenu();
     });
-        link.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            closeMenu();
-        });
+            link.addEventListener('touchend', function (e) {
+                      e.preventDefault();
+                      closeMenu();
+                      var href = link.getAttribute('href');
+                      if (href) { window.location.href = href; }
+            });
   });
 
   // Close menu on Escape key
