@@ -44,22 +44,33 @@
     document.body.style.overflow = '';
   }
 
-  hamburger.addEventListener('click', function () {
-    if (navLinks.classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
+    // Toggle menu function for both click and touch
+    function toggleMenu(e) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        if (navLinks.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     }
+
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchend', toggleMenu);
   });
 
   // Close menu when overlay is clicked
   overlay.addEventListener('click', closeMenu);
+    overlay.addEventListener('touchend', function(e) { e.preventDefault(); closeMenu(); });
 
   // Close menu when a nav link is clicked
   navLinkItems.forEach(function (link) {
     link.addEventListener('click', function () {
       closeMenu();
     });
+        link.addEventListener('touchend', function (e) {
+            e.preventDefault();
+            closeMenu();
+        });
   });
 
   // Close menu on Escape key
