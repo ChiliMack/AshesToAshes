@@ -67,7 +67,7 @@
       });
   // Close menu when overlay is clicked
   overlay.addEventListener('click', closeMenu);
-    overlay.addEventListener('touchend', function(e) { e.preventDefault(); closeMenu(); });
+    overlay.addEventListener('touchend', function(e) { e.preventDefault(); var touch = e.changedTouches[0]; overlay.style.display = 'none'; var el = document.elementFromPoint(touch.clientX, touch.clientY); overlay.style.display = ''; var anchor = el ? (el.closest ? el.closest('a.nav-link') : null) : null; closeMenu(); if (anchor) { var href = anchor.getAttribute('href'); if (href) { window.location.href = href; } } });
 
   // Close menu when a nav link is clicked
   navLinkItems.forEach(function (link) {
