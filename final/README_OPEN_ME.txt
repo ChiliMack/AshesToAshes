@@ -1,17 +1,5 @@
-ASHES TO ASHES — COMPLETE FULL WEBSITE WITH SERENE LAKE ANIMATED HERO
+Ashes To Ashes full website package.
 
-Open after extracting:
-  index.html
+Open index.html after extracting the ZIP.
 
-This is the full webpage package, including:
-  css/styles.css
-  js/main.js
-  images/
-  images/serene-lake-hero.png
-
-Hero update included:
-  - full serene lake image background
-  - cinematic Ken Burns motion
-  - subtle parallax movement
-  - gentle light sweep
-  - desktop and mobile-safe overlays
+Update included: phone/mobile CSS now mirrors the laptop/desktop visual treatment more closely.

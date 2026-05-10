@@ -3490,3 +3490,206 @@ body {
     margin-bottom: 1.25rem !important;
   }
 }
+
+/* ============================================================
+   MOBILE MATCHES DESKTOP PATCH
+   Keeps the phone experience visually aligned with the laptop
+   version instead of switching into a simplified old/mobile look.
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  body {
+    background: #efe3d1 !important;
+  }
+
+  .hero {
+    min-height: 100vh !important;
+    padding: 5.5rem 1.25rem 2rem !important;
+    background:
+      linear-gradient(90deg, rgba(255, 248, 236, 0.92) 0%, rgba(255, 248, 236, 0.78) 34%, rgba(255, 248, 236, 0.36) 58%, rgba(15, 18, 22, 0.18) 100%),
+      url("../images/serene-lake-hero.png") center center / cover no-repeat !important;
+    animation: heroLakeKenBurns 28s ease-in-out infinite alternate !important;
+  }
+
+  .hero::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: -7% !important;
+    z-index: -2 !important;
+    background: url("../images/serene-lake-hero.png") center center / cover no-repeat !important;
+    transform-origin: center !important;
+    animation: heroLakeParallax 34s ease-in-out infinite alternate !important;
+    filter: saturate(1.04) contrast(1.03) brightness(1.03) !important;
+  }
+
+  .hero::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+    background:
+      radial-gradient(circle at 18% 38%, rgba(255, 221, 142, 0.28), transparent 30%),
+      linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.22) 42%, transparent 58%) !important;
+    mix-blend-mode: soft-light !important;
+    animation: heroLakeLightSweep 12s ease-in-out infinite alternate !important;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(255, 248, 236, 0.9) 0%, rgba(255, 248, 236, 0.73) 40%, rgba(255, 248, 236, 0.22) 68%, rgba(0, 0, 0, 0.06) 100%) !important;
+    opacity: 1 !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: 980px !important;
+    min-height: 88vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding-top: 6vh !important;
+    padding-bottom: 2vh !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-tagline {
+    color: #8a6414 !important;
+    font-size: clamp(1.85rem, 8.7vw, 3.05rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0.055em !important;
+    font-weight: 800 !important;
+    max-width: 92vw !important;
+    padding: 0.35rem 0.85rem 0.45rem 0 !important;
+    background: linear-gradient(
+      90deg,
+      rgba(247,239,224,0.88) 0%,
+      rgba(247,239,224,0.7) 58%,
+      rgba(247,239,224,0.00) 100%
+    ) !important;
+    text-align: left !important;
+    text-shadow:
+      0 2px 14px rgba(255,255,255,0.55),
+      0 2px 6px rgba(0,0,0,0.12) !important;
+  }
+
+  .hero-headline {
+    color: #5c0a0a !important;
+    font-size: clamp(1.3rem, 5.3vw, 2.15rem) !important;
+    line-height: 1.22 !important;
+    font-weight: 700 !important;
+    max-width: 92vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 2rem !important;
+    text-align: left !important;
+    text-shadow: 0 4px 24px rgba(255, 248, 236, 0.76) !important;
+  }
+
+  .hero-highlight-card,
+  .hero-glass-card {
+    align-self: flex-start !important;
+    width: min(92vw, 760px) !important;
+    max-width: 760px !important;
+    margin-top: auto !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-bottom: 0 !important;
+    transform: translateY(3.75rem) !important;
+    padding: 1.3rem 1.35rem !important;
+    border-radius: 18px !important;
+    background: rgba(255, 250, 240, 0.78) !important;
+    border: 1px solid rgba(184, 134, 11, 0.38) !important;
+    color: #2f1f18 !important;
+    box-shadow: 0 22px 58px rgba(60, 36, 18, 0.18) !important;
+    backdrop-filter: blur(14px) saturate(1.05) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.05) !important;
+  }
+
+  .hero-highlight-card p,
+  .hero-glass-card p {
+    color: #2f1f18 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .hero-highlight-card strong,
+  .hero-glass-card strong,
+  .hero-glass-card h2 {
+    color: #5c0a0a !important;
+  }
+
+  .hero-ctas,
+  .hero-buttons {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .section,
+  .section-about,
+  .section-services,
+  .section-pricing,
+  .section-faq,
+  .section-contact,
+  .contact {
+    background-color: #efe3d1 !important;
+  }
+
+  .about-card,
+  .service-card,
+  .pricing-card,
+  .contact-card,
+  .value-card,
+  .faq-list,
+  .faq-item {
+    background: #fff8ef !important;
+    color: #2d1f1f !important;
+  }
+
+  .section-heading,
+  .section-heading-light,
+  .service-card h3,
+  .pricing-header h3,
+  .contact h2,
+  .faq-question,
+  .faq-question span {
+    color: #5c0a0a !important;
+  }
+
+  .section-intro,
+  .section-intro-light,
+  .contact-intro,
+  .service-card p,
+  .pricing-features li,
+  .contact-card p,
+  .faq-answer p {
+    color: #342626 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.55rem, 9.2vw, 2.55rem) !important;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.15rem, 5.4vw, 1.75rem) !important;
+  }
+
+  .hero-highlight-card,
+  .hero-glass-card {
+    width: 94vw !important;
+    transform: translateY(2.75rem) !important;
+  }
+}
