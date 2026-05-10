@@ -55,7 +55,12 @@
     }
 
     hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchend', toggleMenu, { passive: false });
+    hamburger.addEventListener('pointerup', function (e) {
+      if (e.pointerType === 'touch') {
+        e.preventDefault();
+        toggleMenu(e);
+      }
+    });
 
     // Close menu when overlay is clicked
     overlay.addEventListener('click', closeMenu);

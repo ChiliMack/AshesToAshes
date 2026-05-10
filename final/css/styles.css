@@ -2784,3 +2784,295 @@ select {
     font-weight: 600;
   }
 }
+
+
+/* ============================================================
+   SERENE CINEMATIC HERO UPGRADE
+   Intentional sunrise / chapel-light visual treatment replacing
+   the old static text card. Keeps desktop and mobile visually aligned.
+   ============================================================ */
+:root {
+  --color-cream: #f3eadb;
+  --color-white: #fbf7ef;
+  --color-ambient-bg: #efe3d0;
+  --color-text-strong: #241b17;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 248, 232, 0.78), transparent 34%),
+    linear-gradient(135deg, #eee2cf 0%, #e5d6bf 100%);
+  color: var(--color-text-strong);
+}
+
+.hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 245, 210, 0.95), transparent 24%),
+    radial-gradient(circle at 78% 20%, rgba(219, 171, 82, 0.28), transparent 28%),
+    linear-gradient(135deg, #6b1917 0%, #7d342b 42%, #1f2530 100%);
+  padding: 118px 20px 78px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 249, 230, 0.16), transparent 34%, rgba(255, 255, 255, 0.08)),
+    radial-gradient(circle at 50% 100%, rgba(250, 229, 180, 0.18), transparent 42%);
+  opacity: 0.94;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(45, 20, 18, 0.10), rgba(35, 20, 18, 0.28) 52%, rgba(18, 18, 22, 0.35)),
+    radial-gradient(circle at center, rgba(255, 242, 205, 0.12), transparent 56%);
+}
+
+.hero-content {
+  max-width: 1080px;
+}
+
+.hero-tagline {
+  color: rgba(255, 239, 183, 0.98);
+  font-size: clamp(1rem, 1.8vw, 1.32rem);
+  letter-spacing: 0.18em;
+  text-shadow: 0 3px 14px rgba(0,0,0,.28);
+}
+
+.hero-headline {
+  color: #fffaf0;
+  font-size: clamp(2.2rem, 5vw, 4.85rem);
+  max-width: 1000px;
+  line-height: 1.05;
+  text-shadow: 0 6px 28px rgba(0,0,0,.32);
+  margin-bottom: 30px;
+}
+
+.hero-visual-wrap {
+  max-width: 880px;
+  margin-bottom: 34px;
+}
+
+/* Serene lakeside cinematic hero panel
+   Uses the selected peaceful sunrise image with a refined Ken Burns motion,
+   gentle light sweep, and premium readability overlay. */
+.hero-cinematic-panel {
+  position: relative;
+  min-height: 390px;
+  border-radius: 30px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 244, 210, 0.58);
+  box-shadow:
+    0 30px 80px rgba(30, 16, 12, 0.30),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  background: #ead7b5;
+}
+
+.serene-lake-panel {
+  background: #ead7b5;
+}
+
+.hero-serene-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.035);
+  filter: saturate(1.02) contrast(1.03) brightness(0.94);
+  animation: serene-ken-burns 24s ease-in-out infinite alternate;
+  will-change: transform, filter;
+}
+
+.serene-image-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(18, 13, 12, 0.32) 0%, rgba(18, 13, 12, 0.06) 44%, rgba(18, 13, 12, 0.24) 100%),
+    linear-gradient(180deg, rgba(18, 13, 12, 0.06) 0%, rgba(18, 13, 12, 0.10) 48%, rgba(18, 13, 12, 0.48) 100%),
+    radial-gradient(circle at 24% 40%, rgba(255, 227, 156, 0.28), transparent 42%);
+  pointer-events: none;
+}
+
+.serene-light-sweep {
+  position: absolute;
+  z-index: 3;
+  inset: -30% -20%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 36%,
+    rgba(255, 238, 183, 0.18) 45%,
+    rgba(255, 255, 255, 0.10) 50%,
+    rgba(255, 226, 154, 0.16) 56%,
+    transparent 68%,
+    transparent 100%
+  );
+  transform: translateX(-32%) rotate(0.001deg);
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  opacity: 0.58;
+  animation: serene-light-sweep 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.serene-caption {
+  position: absolute;
+  z-index: 4;
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  background: rgba(28, 21, 18, 0.54);
+  border: 1px solid rgba(255, 236, 186, 0.38);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.24);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.serene-caption strong {
+  color: #fff7df;
+  font-size: clamp(1.12rem, 2vw, 1.45rem);
+  letter-spacing: .02em;
+}
+
+.serene-caption span {
+  color: rgba(255, 245, 220, .94);
+  font-size: clamp(.95rem, 1.4vw, 1.08rem);
+  line-height: 1.5;
+}
+
+@keyframes serene-ken-burns {
+  0% {
+    transform: scale(1.035) translate3d(-0.8%, -0.4%, 0);
+    filter: saturate(1.02) contrast(1.03) brightness(0.94);
+  }
+  50% {
+    transform: scale(1.075) translate3d(0.8%, -0.9%, 0);
+    filter: saturate(1.08) contrast(1.04) brightness(0.99);
+  }
+  100% {
+    transform: scale(1.11) translate3d(1.4%, 0.2%, 0);
+    filter: saturate(1.04) contrast(1.05) brightness(0.96);
+  }
+}
+
+@keyframes serene-light-sweep {
+  0%, 18% {
+    transform: translateX(-42%) skewX(-8deg);
+    opacity: 0;
+  }
+  42% {
+    opacity: 0.62;
+  }
+  72%, 100% {
+    transform: translateX(42%) skewX(-8deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-serene-image,
+  .serene-light-sweep {
+    animation: none !important;
+  }
+}
+
+.hero-ctas {
+  flex-direction: row;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-phone-link {
+  color: #fffaf0;
+  font-weight: 700;
+  text-shadow: 0 3px 14px rgba(0,0,0,.28);
+}
+
+.section-how-it-works .section-intro-light,
+.section-intro-light {
+  color: rgba(255, 253, 232, 0.96) !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.30);
+}
+
+@keyframes sky-breathe {
+  from { filter: saturate(0.96) brightness(0.98); }
+  to { filter: saturate(1.08) brightness(1.04); }
+}
+
+@keyframes sun-glow {
+  from { transform: translate(-50%, -50%) scale(.96); opacity: .82; }
+  to { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+}
+
+@keyframes rays-drift {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes cloud-slow-left {
+  from { transform: translateX(-20px); }
+  to { transform: translateX(70px); }
+}
+
+@keyframes cloud-slow-right {
+  from { transform: translateX(45px); }
+  to { transform: translateX(-55px); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 104px 18px 58px;
+    min-height: auto;
+    background:
+      radial-gradient(circle at 26% 14%, rgba(255, 245, 210, 0.92), transparent 28%),
+      linear-gradient(145deg, #74302a 0%, #6b2b27 45%, #263240 100%);
+  }
+
+  .hero-tagline {
+    font-size: .86rem;
+    letter-spacing: .11em;
+    margin-bottom: 14px;
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.08;
+    margin-bottom: 22px;
+  }
+
+  .hero-cinematic-panel {
+    min-height: 310px;
+    border-radius: 24px;
+  }
+
+  .hero-serene-image {
+    object-position: center center;
+  }
+
+  .serene-caption {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
