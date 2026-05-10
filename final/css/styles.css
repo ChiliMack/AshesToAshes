@@ -3798,3 +3798,306 @@ body.nav-open {
     cursor: pointer !important;
   }
 }
+
+/* ============================================================
+   FINAL: MAKE MOBILE MATCH LAPTOP VERSION
+   This intentionally prevents the phone layout from reverting
+   to the simplified/older mobile composition.
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  html,
+  body {
+    width: 100% !important;
+    overflow-x: hidden !important;
+    background: #efe3d1 !important;
+  }
+
+  /* Keep the same cinematic lake hero presentation as desktop */
+  .hero {
+    min-height: 100vh !important;
+    padding: 7rem 1.25rem 2.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    background:
+      linear-gradient(90deg, rgba(255, 248, 236, 0.92) 0%, rgba(255, 248, 236, 0.78) 34%, rgba(255, 248, 236, 0.36) 58%, rgba(15, 18, 22, 0.18) 100%),
+      url("../images/serene-lake-hero.png") center center / cover no-repeat !important;
+    animation: heroLakeKenBurns 28s ease-in-out infinite alternate !important;
+  }
+
+  .hero::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: -7% !important;
+    z-index: -2 !important;
+    background: url("../images/serene-lake-hero.png") center center / cover no-repeat !important;
+    transform-origin: center !important;
+    animation: heroLakeParallax 34s ease-in-out infinite alternate !important;
+    filter: saturate(1.04) contrast(1.03) brightness(1.03) !important;
+  }
+
+  .hero::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+    background:
+      radial-gradient(circle at 18% 38%, rgba(255, 221, 142, 0.34), transparent 30%),
+      linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.28) 42%, transparent 58%) !important;
+    mix-blend-mode: soft-light !important;
+    animation: heroLakeLightSweep 12s ease-in-out infinite alternate !important;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(255, 248, 236, 0.9) 0%, rgba(255, 248, 236, 0.73) 40%, rgba(255, 248, 236, 0.22) 68%, rgba(0, 0, 0, 0.06) 100%) !important;
+    opacity: 1 !important;
+  }
+
+  /* Laptop-like hero composition */
+  .hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    max-width: 980px !important;
+    min-height: 88vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    margin: 0 auto !important;
+    padding: 6vh 1rem 2vh !important;
+  }
+
+  .hero-tagline {
+    color: #8a6414 !important;
+    font-size: clamp(1.75rem, 8vw, 3.1rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0.055em !important;
+    font-weight: 800 !important;
+    text-align: left !important;
+    max-width: 92vw !important;
+    margin: 0 0 1rem 0 !important;
+    padding: 0.35rem 0.85rem 0.45rem 0 !important;
+    background: linear-gradient(
+      90deg,
+      rgba(247,239,224,0.88) 0%,
+      rgba(247,239,224,0.7) 58%,
+      rgba(247,239,224,0.00) 100%
+    ) !important;
+    border-radius: 10px !important;
+    text-shadow:
+      0 2px 14px rgba(255,255,255,0.55),
+      0 2px 6px rgba(0,0,0,0.12) !important;
+  }
+
+  .hero-headline {
+    color: #5c0a0a !important;
+    font-size: clamp(1.25rem, 5.1vw, 2.1rem) !important;
+    line-height: 1.22 !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    max-width: 92vw !important;
+    margin: 0 0 2rem 0 !important;
+    text-shadow: 0 4px 24px rgba(255, 248, 236, 0.76) !important;
+  }
+
+  /* Keep the small concierge box low like laptop, not centered/stacked oddly */
+  .hero-highlight-card,
+  .hero-glass-card {
+    align-self: flex-start !important;
+    width: min(92vw, 760px) !important;
+    max-width: 760px !important;
+    margin-top: auto !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-bottom: 0 !important;
+    transform: translateY(8rem) !important;
+    padding: 1.35rem 1.45rem !important;
+    border-radius: 18px !important;
+    background: rgba(255, 250, 240, 0.78) !important;
+    border: 1px solid rgba(184, 134, 11, 0.38) !important;
+    color: #2f1f18 !important;
+    box-shadow: 0 22px 58px rgba(60, 36, 18, 0.18) !important;
+    backdrop-filter: blur(14px) saturate(1.05) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.05) !important;
+  }
+
+  .hero-highlight-card p,
+  .hero-glass-card p {
+    color: #2f1f18 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .hero-highlight-card strong,
+  .hero-glass-card strong,
+  .hero-glass-card h2 {
+    color: #5c0a0a !important;
+  }
+
+  .hero-ctas,
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    text-align: left !important;
+  }
+
+  .btn,
+  .btn-primary {
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-phone,
+  .hero-phone-link,
+  a[href^="tel:"] {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.38) !important;
+    text-decoration-color: rgba(255,255,255,0.8) !important;
+  }
+
+  /* Match laptop colors throughout the page */
+  .section,
+  .section-about,
+  .section-services,
+  .section-pricing,
+  .section-faq,
+  .section-contact,
+  .contact {
+    background-color: #efe3d1 !important;
+  }
+
+  .about-card,
+  .service-card,
+  .pricing-card,
+  .contact-card,
+  .value-card,
+  .faq-list,
+  .faq-item {
+    background: #fff8ef !important;
+    color: #2d1f1f !important;
+  }
+
+  .section-heading,
+  .section-heading-light,
+  .service-card h3,
+  .pricing-header h3,
+  .contact h2,
+  .faq-question,
+  .faq-question span {
+    color: #5c0a0a !important;
+  }
+
+  .section-intro,
+  .section-intro-light,
+  .contact-intro,
+  .service-card p,
+  .pricing-features li,
+  .contact-card p,
+  .faq-answer p {
+    color: #342626 !important;
+  }
+
+  /* Keep nav usable while preserving the desktop look elsewhere */
+  .hamburger {
+    display: flex !important;
+  }
+
+  .nav-links {
+    background: rgba(92, 10, 10, 0.98) !important;
+  }
+
+  .nav-link {
+    color: #ffffff !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+  }
+
+  .hero-content {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.45rem, 9vw, 2.45rem) !important;
+    max-width: 94vw !important;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.1rem, 5.3vw, 1.75rem) !important;
+    max-width: 94vw !important;
+  }
+
+  .hero-highlight-card,
+  .hero-glass-card {
+    width: 94vw !important;
+    transform: translateY(6.25rem) !important;
+  }
+}
+
+/* ============================================================
+   STRETCH CONCIERGE BOX PATCH
+   Widens the small "Ashes To Ashes Concierge Services" box.
+   ============================================================ */
+
+/* This targets the small dark box shown over the lake image. */
+.serene-caption {
+  left: 1.5rem !important;
+  right: 1.5rem !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Safety target in case the same content is using the hero card class. */
+.hero-highlight-card,
+.hero-glass-card {
+  width: min(96vw, 1120px) !important;
+  max-width: 1120px !important;
+}
+
+/* Mobile: stretch the same box nearly full width while keeping margins. */
+@media (max-width: 900px) {
+  .serene-caption {
+    left: 0.85rem !important;
+    right: 0.85rem !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .hero-highlight-card,
+  .hero-glass-card {
+    width: 96vw !important;
+    max-width: 96vw !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .serene-caption {
+    left: 0.65rem !important;
+    right: 0.65rem !important;
+  }
+
+  .hero-highlight-card,
+  .hero-glass-card {
+    width: 97vw !important;
+    max-width: 97vw !important;
+  }
+}
