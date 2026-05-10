@@ -638,10 +638,7 @@ h3 {
 }
 
 .value-icon {
-  display: block;
-  font-size: 2rem;
-  color: var(--color-gold);
-  margin-bottom: 12px;
+  margin: 0 auto 14px;
 }
 
 .value-card h3 {
@@ -652,6 +649,42 @@ h3 {
 .value-card p {
   font-size: 0.95rem;
   color: var(--color-dark-light);
+}
+
+
+.icon-modern {
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(184, 134, 11, 0.34);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--color-gold);
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 253, 208, 0.9), transparent 34%),
+    linear-gradient(145deg, #fffdf7 0%, #f8efd6 100%);
+  box-shadow: 0 10px 22px rgba(92, 10, 10, 0.08);
+}
+
+.icon-modern svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.value-card .icon-modern {
+  border-radius: 50%;
+}
+
+.service-card .icon-modern {
+  color: var(--color-maroon);
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 253, 208, 0.95), transparent 36%),
+    linear-gradient(145deg, #fffaf0 0%, #ecd99f 100%);
 }
 
 /* ============================================================
@@ -683,9 +716,7 @@ h3 {
 }
 
 .service-icon {
-  display: block;
-  font-size: 2.2rem;
-  margin-bottom: 14px;
+  margin: 0 0 18px;
 }
 
 .service-card h3 {
@@ -1802,5 +1833,954 @@ h3 {
 @media (min-width: 768px) and (max-width: 1023px) {
   .pricing-grid-expanded {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ============================================================
+   PREMIUM AMBIENT BACKGROUND SYSTEM
+   Soft cinematic light, gentle motion, and subtle depth
+   ============================================================ */
+:root {
+  --ambient-navy: #101827;
+  --ambient-charcoal: #171717;
+  --ambient-warm: rgba(212, 168, 67, 0.18);
+  --ambient-soft: rgba(255, 253, 208, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(212, 168, 67, 0.10), transparent 26rem),
+    radial-gradient(circle at 82% 14%, rgba(92, 10, 10, 0.10), transparent 30rem),
+    linear-gradient(180deg, #fffdf0 0%, #f8f2df 48%, #fffdf0 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 22%, rgba(212, 168, 67, 0.13), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.10), transparent 20%),
+    radial-gradient(circle at 50% 88%, rgba(92, 10, 10, 0.08), transparent 24%);
+  filter: blur(18px);
+  opacity: 0.9;
+  animation: ambientDrift 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(92, 10, 10, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 10, 10, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 62%);
+}
+
+@keyframes ambientDrift {
+  0% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  50% { transform: translate3d(1.5%, 1%, 0) scale(1.035); }
+  100% { transform: translate3d(2.5%, -1%, 0) scale(1.06); }
+}
+
+@keyframes lightSweep {
+  0% { transform: translateX(-45%) rotate(12deg); opacity: 0.12; }
+  50% { opacity: 0.28; }
+  100% { transform: translateX(45%) rotate(12deg); opacity: 0.12; }
+}
+
+.hero {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 8%, rgba(255, 243, 199, 0.18), transparent 28%),
+    radial-gradient(circle at 18% 32%, rgba(212, 168, 67, 0.14), transparent 28%),
+    radial-gradient(circle at 82% 70%, rgba(255, 255, 255, 0.08), transparent 26%),
+    linear-gradient(135deg, #101827 0%, #371018 42%, #07090f 100%);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::before {
+  inset: -18% -28%;
+  background:
+    linear-gradient(105deg, transparent 18%, rgba(255, 253, 208, 0.10) 34%, transparent 48%),
+    linear-gradient(78deg, transparent 42%, rgba(212, 168, 67, 0.11) 54%, transparent 66%);
+  filter: blur(10px);
+  animation: lightSweep 18s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  inset: 0;
+  opacity: 0.34;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255,255,255,0.12), transparent 10rem),
+    linear-gradient(180deg, rgba(7, 9, 15, 0.08), rgba(7, 9, 15, 0.48));
+}
+
+.hero-overlay {
+  z-index: 0;
+  background:
+    radial-gradient(circle at top center, rgba(212,168,67,0.18), transparent 42%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 34%),
+    linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.28));
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-highlight-card,
+.about-card,
+.value-card,
+.service-card,
+.pricing-card,
+.testimonial-card,
+.contact-form-wrap,
+.contact-info-card,
+.faq-item {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hero-highlight-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.055));
+  border: 1px solid rgba(212,168,67,.36);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(212, 168, 67, 0.08), transparent 18rem),
+    radial-gradient(circle at 92% 18%, rgba(92, 10, 10, 0.055), transparent 22rem);
+  opacity: 0.9;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.section-about,
+.section-pricing,
+.section-faq,
+.section-testimonials,
+.section-contact {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,253,240,0.94)),
+    radial-gradient(circle at top left, rgba(212,168,67,0.10), transparent 28rem);
+}
+
+.section-services {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212,168,67,0.11), transparent 28rem),
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,242,223,0.82));
+}
+
+.section-how-it-works {
+  background:
+    radial-gradient(circle at 50% 3%, rgba(255, 243, 199, 0.18), transparent 24rem),
+    radial-gradient(circle at 18% 24%, rgba(212, 168, 67, 0.16), transparent 24rem),
+    linear-gradient(135deg, #101827 0%, #5c0a0a 48%, #080910 100%);
+}
+
+.section-how-it-works::before {
+  background:
+    linear-gradient(105deg, transparent 16%, rgba(255, 255, 255, 0.055), transparent 32%),
+    radial-gradient(circle at 78% 22%, rgba(212,168,67,0.16), transparent 20rem);
+  animation: ambientDrift 20s ease-in-out infinite alternate;
+}
+
+.value-card,
+.service-card,
+.pricing-card,
+.testimonial-card,
+.faq-item,
+.about-card {
+  border: 1px solid rgba(184, 134, 11, 0.16);
+  box-shadow: 0 18px 45px rgba(31, 22, 12, 0.08), inset 0 1px 0 rgba(255,255,255,0.42);
+}
+
+.service-card,
+.pricing-card,
+.testimonial-card,
+.faq-item,
+.about-card,
+.value-card {
+  background-image:
+    linear-gradient(145deg, rgba(255,255,255,0.72), rgba(255,253,240,0.78)),
+    radial-gradient(circle at top right, rgba(212,168,67,0.10), transparent 12rem);
+}
+
+.icon-modern svg,
+.step-icon-luxury svg {
+  filter: drop-shadow(0 8px 16px rgba(184,134,11,0.16));
+}
+
+.btn-primary {
+  box-shadow: 0 12px 26px rgba(184, 134, 11, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .hero::before,
+  .section-how-it-works::before {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   CONTACT CONTRAST FIX — Premium Ambient Theme
+   Keeps contact information readable on the lighter contact background
+   ============================================================ */
+.section-contact {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(212, 168, 67, 0.12), transparent 26rem),
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,253,240,0.96));
+  color: var(--color-dark);
+}
+
+.section-contact .section-heading {
+  color: var(--color-maroon);
+}
+
+.section-contact .section-intro {
+  color: #4b4036;
+}
+
+.contact-info {
+  color: var(--color-dark);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.78), rgba(255,253,240,0.9)),
+    radial-gradient(circle at top right, rgba(212,168,67,0.12), transparent 12rem);
+  border: 1px solid rgba(184, 134, 11, 0.18);
+  border-radius: 18px;
+  padding: 32px 28px;
+  box-shadow: 0 18px 45px rgba(31, 22, 12, 0.08), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.contact-info-block h3 {
+  color: var(--color-maroon);
+}
+
+.contact-info-block p {
+  color: #33271d;
+}
+
+.contact-info-block a {
+  color: #7a1a1a;
+  font-weight: 700;
+  text-decoration-color: var(--color-gold);
+}
+
+.contact-info-block a:hover,
+.contact-info-block a:focus {
+  color: var(--color-gold);
+}
+
+.contact-note {
+  color: #5f5449;
+  border-top: 1px solid rgba(92, 10, 10, 0.14);
+}
+
+/* ============================================================
+   WHOLE WEBSITE LIGHT-BACKGROUND TONE UPDATE
+   Slightly darkens the previous white/off-white areas so the premium
+   ambient theme feels warmer, calmer, and less stark.
+   ============================================================ */
+:root {
+  --color-cream: #efe4cf;
+  --color-soft-page: #eee3d2;
+  --color-soft-section: #f1e8d8;
+  --color-soft-card: #f7f0e5;
+  --color-soft-card-deep: #efe4d0;
+}
+
+body {
+  background-color: var(--color-soft-page);
+}
+
+.section-about,
+.section-pricing,
+.section-faq,
+.section-testimonials,
+.section-contact {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(212, 168, 67, 0.09), transparent 24rem),
+    radial-gradient(circle at 88% 18%, rgba(92, 10, 10, 0.05), transparent 26rem),
+    linear-gradient(180deg, #f1e8d8 0%, #e9ddca 100%);
+}
+
+.section-services {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212,168,67,0.12), transparent 28rem),
+    radial-gradient(circle at 12% 26%, rgba(92, 10, 10, 0.045), transparent 22rem),
+    linear-gradient(180deg, #f3eadb 0%, #e9decb 100%);
+}
+
+.about-card,
+.value-card,
+.service-card,
+.pricing-card,
+.testimonial-card,
+.faq-item,
+.contact-form,
+.contact-form-wrap,
+.contact-info,
+.contact-info-card,
+.pricing-preplanning {
+  background:
+    radial-gradient(circle at top right, rgba(212,168,67,0.12), transparent 12rem),
+    linear-gradient(145deg, rgba(247,240,229,0.95), rgba(239,228,208,0.92));
+  border-color: rgba(145, 102, 44, 0.22);
+  box-shadow: 0 18px 42px rgba(34, 24, 13, 0.10), inset 0 1px 0 rgba(255,255,255,0.42);
+}
+
+.hero-highlight-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.055));
+}
+
+.icon-modern {
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 246, 222, 0.92), transparent 34%),
+    linear-gradient(145deg, #f5ecd9 0%, #e4d4ad 100%);
+}
+
+.service-card .icon-modern {
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 246, 222, 0.95), transparent 36%),
+    linear-gradient(145deg, #f3e7cf 0%, #dcc892 100%);
+}
+
+.contact-info-block p,
+.about-card p,
+.value-card p,
+.service-card p,
+.pricing-features li,
+.faq-answer p,
+.testimonial-card p {
+  color: #34291f;
+}
+
+.section-intro,
+.section-contact .section-intro,
+.section-cta p,
+.pricing-subtitle,
+.contact-note {
+  color: #55483a;
+}
+
+input,
+textarea,
+select {
+  background-color: #fbf6ec;
+}
+
+/* ============================================================
+   FAQ INDENTATION / ALIGNMENT FIX
+   Adds comfortable side padding so questions do not sit flush
+   against the FAQ card edge, while keeping the premium theme.
+   ============================================================ */
+.faq-list {
+  border: 1px solid rgba(145, 102, 44, 0.22);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(212,168,67,0.10), transparent 14rem),
+    linear-gradient(145deg, rgba(247,240,229,0.96), rgba(239,228,208,0.94));
+  box-shadow: 0 18px 42px rgba(34, 24, 13, 0.10), inset 0 1px 0 rgba(255,255,255,0.42);
+}
+
+.faq-item {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.faq-question {
+  padding: 22px 28px;
+}
+
+.faq-answer p {
+  padding: 0 28px 22px 28px;
+}
+
+@media (max-width: 640px) {
+  .faq-question {
+    padding: 20px 18px;
+  }
+
+  .faq-answer p {
+    padding: 0 18px 20px 18px;
+  }
+}
+
+/* ============================================================
+   MOBILE COLOR + PRESENTATION CONSISTENCY FIX
+   Makes the phone version intentionally match the laptop aesthetic
+   instead of relying on compressed desktop gradients.
+   ============================================================ */
+@media (max-width: 767px) {
+  :root {
+    --mobile-page-bg: #eee3d2;
+    --mobile-section-bg: #efe4cf;
+    --mobile-card-bg: #f6efe3;
+    --mobile-card-bg-deep: #ede1cc;
+    --mobile-text: #2f251d;
+    --mobile-muted: #57493b;
+    --mobile-maroon: #5c0a0a;
+    --mobile-gold: #b8860b;
+  }
+
+  html {
+    scroll-padding-top: 68px;
+  }
+
+  body {
+    background: var(--mobile-page-bg) !important;
+    color: var(--mobile-text);
+  }
+
+  body::before,
+  body::after {
+    opacity: 0.28;
+    filter: blur(10px);
+  }
+
+  .site-header {
+    background: rgba(44, 7, 10, 0.97);
+    border-bottom: 1px solid rgba(212, 168, 67, 0.24);
+  }
+
+  .nav-links {
+    background:
+      radial-gradient(circle at 20% 0%, rgba(212,168,67,0.12), transparent 14rem),
+      linear-gradient(180deg, #3a080b 0%, #1b1014 100%);
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 112px 18px 58px;
+    background:
+      radial-gradient(circle at 50% 2%, rgba(255, 243, 199, 0.16), transparent 16rem),
+      radial-gradient(circle at 18% 28%, rgba(212, 168, 67, 0.13), transparent 14rem),
+      linear-gradient(145deg, #101827 0%, #421016 48%, #07090f 100%) !important;
+  }
+
+  .hero::before {
+    animation: none;
+    opacity: 0.28;
+  }
+
+  .hero::after {
+    opacity: 0.42;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.35rem, 8vw, 2.1rem);
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.45rem, 6.4vw, 2rem);
+    line-height: 1.22;
+    margin-bottom: 20px;
+  }
+
+  .hero-highlight-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.06)) !important;
+    border-color: rgba(212,168,67,.38);
+  }
+
+  .hero-highlight-card p {
+    font-size: 0.96rem;
+    line-height: 1.72;
+  }
+
+  .hero-ctas {
+    gap: 14px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 330px;
+    padding: 14px 22px;
+    border-radius: 14px;
+  }
+
+  .section {
+    padding: 54px 0;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section-about,
+  .section-services,
+  .section-pricing,
+  .section-faq,
+  .section-testimonials,
+  .section-contact {
+    background:
+      radial-gradient(circle at 8% 4%, rgba(212,168,67,0.10), transparent 15rem),
+      radial-gradient(circle at 92% 12%, rgba(92,10,10,0.055), transparent 15rem),
+      linear-gradient(180deg, var(--mobile-section-bg) 0%, #e8dcc8 100%) !important;
+  }
+
+  .section-how-it-works {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 243, 199, 0.16), transparent 16rem),
+      radial-gradient(circle at 15% 22%, rgba(212, 168, 67, 0.12), transparent 13rem),
+      linear-gradient(145deg, #101827 0%, #4a0b12 48%, #080910 100%) !important;
+  }
+
+  .section::before,
+  .section-how-it-works::before {
+    opacity: 0.42;
+    animation: none;
+  }
+
+  .section-heading {
+    font-size: clamp(1.8rem, 8vw, 2.45rem);
+    line-height: 1.13;
+    color: var(--mobile-maroon);
+  }
+
+  .section-heading-light {
+    color: #ffffff;
+  }
+
+  .section-intro,
+  .section-contact .section-intro,
+  .section-cta p,
+  .pricing-subtitle,
+  .contact-note {
+    color: var(--mobile-muted) !important;
+  }
+
+  .section-intro-light {
+    color: rgba(255,253,208,0.9) !important;
+  }
+
+  .about-card,
+  .value-card,
+  .service-card,
+  .pricing-card,
+  .testimonial-card,
+  .contact-form,
+  .contact-form-wrap,
+  .contact-info,
+  .contact-info-card,
+  .pricing-preplanning,
+  .faq-list {
+    background:
+      radial-gradient(circle at top right, rgba(212,168,67,0.10), transparent 10rem),
+      linear-gradient(145deg, rgba(246,239,227,0.98), rgba(237,225,204,0.96)) !important;
+    border: 1px solid rgba(145, 102, 44, 0.22) !important;
+    box-shadow: 0 14px 32px rgba(34, 24, 13, 0.10), inset 0 1px 0 rgba(255,255,255,0.38) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .faq-item {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 1px solid rgba(145, 102, 44, 0.22) !important;
+  }
+
+  .about-card p,
+  .value-card p,
+  .service-card p,
+  .pricing-features li,
+  .faq-answer p,
+  .testimonial-card p,
+  .contact-info-block p,
+  .contact-info-block a,
+  .contact-note,
+  label {
+    color: var(--mobile-text) !important;
+  }
+
+  .about-card h3,
+  .value-card h3,
+  .service-card h3,
+  .pricing-header h3,
+  .faq-question,
+  .contact-info-block h3 {
+    color: var(--mobile-maroon) !important;
+  }
+
+  .faq-question {
+    padding: 20px 20px !important;
+    gap: 14px;
+    line-height: 1.45;
+  }
+
+  .faq-icon {
+    color: var(--mobile-gold);
+    flex: 0 0 auto;
+  }
+
+  .faq-answer p {
+    padding: 0 20px 20px 20px !important;
+  }
+
+  .contact-info {
+    padding: 26px 22px;
+  }
+
+  .contact-info-block {
+    border-bottom: 1px solid rgba(92, 10, 10, 0.12);
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+
+  .contact-info-block:last-of-type {
+    border-bottom: 0;
+  }
+
+  .contact-info-block a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(184,134,11,0.6);
+    text-underline-offset: 3px;
+  }
+
+  .icon-modern {
+    background:
+      radial-gradient(circle at 30% 22%, rgba(255, 246, 222, 0.95), transparent 34%),
+      linear-gradient(145deg, #f4ead7 0%, #dfcea5 100%) !important;
+  }
+
+  .service-card .icon-modern {
+    background:
+      radial-gradient(circle at 30% 22%, rgba(255, 246, 222, 0.95), transparent 36%),
+      linear-gradient(145deg, #f2e4cb 0%, #d9c287 100%) !important;
+  }
+
+  input,
+  textarea,
+  select {
+    background: #fbf6ec !important;
+    color: var(--mobile-text) !important;
+    border-color: rgba(145, 102, 44, 0.28) !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #756858;
+  }
+
+  .pricing-header {
+    min-height: auto;
+  }
+
+  .pricing-header h3,
+  .pricing-subtitle,
+  .pricing-price {
+    min-height: auto;
+  }
+
+  .step-card-luxury {
+    background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.055)) !important;
+    border-color: rgba(212,168,67,0.36) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .step-card p {
+    color: rgba(255,253,208,0.92);
+  }
+}
+
+/* ============================================================
+   HERO LIGHTENING UPDATE — serene premium ambience
+   Keeps the cinematic feel but removes the overly dark appearance
+   on desktop and mobile.
+   ============================================================ */
+.hero {
+  background:
+    linear-gradient(115deg, rgba(255, 248, 232, 0.96) 0%, rgba(237, 222, 196, 0.92) 40%, rgba(210, 183, 139, 0.86) 100%),
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.9), transparent 30%),
+    radial-gradient(circle at 82% 42%, rgba(184, 134, 11, 0.20), transparent 34%),
+    linear-gradient(135deg, #f4ead7 0%, #e6d4b6 52%, #c9a86f 100%) !important;
+  color: #2a1d18;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 24% 30%, rgba(255, 255, 255, 0.50), transparent 28%),
+    radial-gradient(ellipse at 78% 36%, rgba(184, 134, 11, 0.18), transparent 31%),
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 45%, transparent 70%);
+  filter: blur(14px);
+  animation: sereneLightDrift 18s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(92,10,10,0.08), transparent 26%, transparent 74%, rgba(92,10,10,0.06)),
+    radial-gradient(circle at bottom center, rgba(255,255,255,0.42), transparent 45%);
+  opacity: 0.9;
+}
+
+@keyframes sereneLightDrift {
+  from { transform: translate3d(-1.5%, -1%, 0) scale(1); opacity: 0.72; }
+  to { transform: translate3d(1.5%, 1%, 0) scale(1.04); opacity: 0.96; }
+}
+
+.hero-overlay {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.55), transparent 38%),
+    linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.08)) !important;
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-tagline {
+  color: #8a5f11 !important;
+  text-shadow: none !important;
+}
+
+.hero-headline {
+  color: #4d0707 !important;
+  text-shadow: none !important;
+}
+
+.hero-highlight-card {
+  background: rgba(255, 253, 247, 0.82) !important;
+  border: 1px solid rgba(184, 134, 11, 0.34) !important;
+  box-shadow: 0 24px 55px rgba(92, 10, 10, 0.14), inset 0 1px 0 rgba(255,255,255,0.72) !important;
+  backdrop-filter: blur(16px);
+}
+
+.hero-highlight-card p {
+  color: #2f241c !important;
+}
+
+.hero-highlight-card strong {
+  color: #5c0a0a !important;
+}
+
+.hero-phone-link {
+  color: #4d0707 !important;
+  text-decoration-color: rgba(184, 134, 11, 0.75) !important;
+  font-weight: 700;
+}
+
+.hero-phone-link:hover,
+.hero-phone-link:focus {
+  color: #8a5f11 !important;
+}
+
+.hero .btn-primary {
+  background: linear-gradient(135deg, #b8860b, #d4a843) !important;
+  border-color: rgba(184, 134, 11, 0.85) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(184, 134, 11, 0.24);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background:
+      linear-gradient(145deg, rgba(255, 249, 237, 0.98) 0%, rgba(236, 221, 197, 0.96) 54%, rgba(211, 187, 149, 0.92) 100%),
+      radial-gradient(circle at 30% 18%, rgba(255,255,255,0.72), transparent 36%) !important;
+  }
+
+  .hero-highlight-card {
+    background: rgba(255, 253, 247, 0.90) !important;
+  }
+
+  .hero::before {
+    filter: blur(10px);
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+}
+
+
+/* ============================================================
+   FINAL MOBILE/DESKTOP SYNC + READABILITY PATCH
+   - Makes mobile color treatment mirror the approved desktop look
+   - Keeps section intro text readable on dark/cinematic sections
+   - Ensures touch navigation layers remain clickable on phones
+   ============================================================ */
+.section-how-it-works .section-intro-light,
+.section-contact .section-intro-light {
+  color: rgba(255, 253, 232, 0.96) !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+.section-how-it-works .section-heading-light,
+.section-contact .section-heading-light {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
+}
+
+.hamburger,
+.nav-links,
+.nav-link,
+.nav-overlay {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger {
+  position: relative;
+  z-index: 1200;
+  touch-action: manipulation;
+}
+
+.nav-links.open {
+  z-index: 1150;
+  pointer-events: auto;
+}
+
+.nav-links.open .nav-link {
+  pointer-events: auto;
+}
+
+.nav-overlay.active {
+  z-index: 1100;
+}
+
+@media (max-width: 767px) {
+  body {
+    background: #efe4d2 !important;
+  }
+
+  .section-about,
+  .section-services,
+  .section-pricing,
+  .section-faq,
+  .section-testimonials,
+  .section-contact {
+    background:
+      radial-gradient(circle at 8% 4%, rgba(212,168,67,0.10), transparent 15rem),
+      radial-gradient(circle at 92% 12%, rgba(92,10,10,0.055), transparent 15rem),
+      linear-gradient(180deg, #efe4d2 0%, #e7dac6 100%) !important;
+  }
+
+  .section-how-it-works {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 243, 199, 0.18), transparent 16rem),
+      radial-gradient(circle at 15% 22%, rgba(212, 168, 67, 0.14), transparent 13rem),
+      linear-gradient(145deg, #131926 0%, #4f1018 48%, #101016 100%) !important;
+  }
+
+  .section-how-it-works .section-intro-light,
+  .section-contact .section-intro-light,
+  .section-how-it-works .section-intro,
+  .section-contact .section-intro {
+    color: rgba(255, 253, 232, 0.96) !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .section-how-it-works .section-heading-light,
+  .section-contact .section-heading-light {
+    color: #ffffff !important;
+  }
+
+  .step-card p {
+    color: rgba(255, 253, 232, 0.94) !important;
+  }
+
+  .site-header {
+    background: rgba(92, 10, 10, 0.98) !important;
+  }
+
+  .nav-links {
+    background:
+      radial-gradient(circle at 22% 0%, rgba(212,168,67,0.16), transparent 15rem),
+      linear-gradient(180deg, #5c0a0a 0%, #2a080b 100%) !important;
+  }
+
+  .nav-link {
+    color: #ffffff !important;
+    min-height: 52px;
+    display: flex !important;
+    align-items: center;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link.active {
+    color: #d4a843 !important;
+  }
+
+  .hero {
+    padding-top: 112px;
+  }
+}
+
+
+/* ============================================================
+   FINAL CONTACT INTRO READABILITY FIX
+   Keeps the contact opening paragraph dark on the light contact section
+   across desktop and mobile, overriding earlier dark-section text rules.
+   ============================================================ */
+.section-contact .section-intro,
+.section-contact .section-intro-light {
+  color: #2f241b !important;
+  text-shadow: none !important;
+  font-weight: 600;
+}
+
+.section-contact .section-intro strong,
+.section-contact .section-intro-light strong {
+  color: var(--color-maroon) !important;
+}
+
+@media (max-width: 767px) {
+  .section-contact .section-intro,
+  .section-contact .section-intro-light {
+    color: #2f241b !important;
+    text-shadow: none !important;
+    font-weight: 600;
   }
 }
