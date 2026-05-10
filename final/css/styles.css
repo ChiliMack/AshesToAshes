@@ -3693,3 +3693,108 @@ body {
     transform: translateY(2.75rem) !important;
   }
 }
+
+
+/* ============================================================
+   FINAL PHONE CTA + LOWER INFO BOX PATCH
+   ============================================================ */
+
+/* Make phone CTA fully white and readable */
+.hero-phone,
+.hero-phone-link,
+a[href^="tel:"] {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35) !important;
+  text-decoration-color: rgba(255,255,255,0.75) !important;
+}
+
+/* Move concierge mini-box lower */
+.hero-highlight-card,
+.hero-glass-card {
+  transform: translateY(12rem) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-highlight-card,
+  .hero-glass-card {
+    transform: translateY(5.5rem) !important;
+  }
+}
+
+
+/* ============================================================
+   LOWER CONCIERGE INFO BOX FURTHER
+   ============================================================ */
+
+.hero-highlight-card,
+.hero-glass-card {
+  transform: translateY(16rem) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-highlight-card,
+  .hero-glass-card {
+    transform: translateY(8rem) !important;
+  }
+}
+
+
+/* ============================================================
+   FINAL HAMBURGER MENU CSS SAFETY PATCH
+   ============================================================ */
+
+.hamburger {
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  position: relative !important;
+  z-index: 1200 !important;
+}
+
+.nav-links {
+  z-index: 1150 !important;
+}
+
+.nav-links.open {
+  right: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.nav-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.48) !important;
+  z-index: 1040 !important;
+  display: none !important;
+}
+
+.nav-overlay.active {
+  display: block !important;
+}
+
+body.nav-open {
+  overflow: hidden !important;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: min(84vw, 340px) !important;
+    height: 100vh !important;
+    transition: right 0.28s ease !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+  }
+
+  .nav-links.open {
+    right: 0 !important;
+  }
+
+  .nav-link {
+    cursor: pointer !important;
+  }
+}
