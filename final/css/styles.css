@@ -195,7 +195,7 @@ h3 {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1200;
   background-color: rgba(92, 10, 10, 0.97);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
