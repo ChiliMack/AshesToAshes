@@ -1,5 +1,5 @@
 /**
- * Ashes To Ashes Concierge Services — Main JavaScript
+ * Ashes To Ashes Concierge Services Ã¢â‚¬â€ Main JavaScript
  * Handles: hamburger menu, smooth scrolling, FAQ accordion,
  * scroll-to-top, active nav highlighting, form validation
  */
@@ -19,7 +19,7 @@
   const header = document.getElementById('site-header');
 
   /* ==========================================================
-     Mobile Navigation — Hamburger Menu
+     Mobile Navigation Ã¢â‚¬â€ Hamburger Menu
      ========================================================== */
 
   // Create overlay element for mobile menu backdrop
@@ -70,18 +70,27 @@
     }, { passive: false });
   }
 
-  // Close menu when a nav link is clicked
+  // Close menu and smooth-scroll when a nav link is clicked
   navLinkItems.forEach(function (link) {
-    link.addEventListener('click', function () {
+    function handleNavClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
       if (navLinks && navLinks.classList.contains('open')) {
         closeMenu();
       }
-    });
-    link.addEventListener('touchend', function () {
-      if (navLinks && navLinks.classList.contains('open')) {
-        closeMenu();
+      var targetId = link.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      var targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        var headerHeight = header ? header.offsetHeight : 70;
+        setTimeout(function () {
+          var top = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }, 100);
       }
-    }, { passive: true });
+    }
+    link.addEventListener('click', handleNavClick);
+    link.addEventListener('touchend', function (e) { e.preventDefault(); handleNavClick(e); });
   });
 
   // Close menu on Escape key
